@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () =>{
     submit.addEventListener("click", (e) => checkValidation(e));
 });
 
-
 const showBtn = document.querySelector("#show-popup-form");
 const loginForm = document.querySelector(".popup");
 const closeBtn = document.querySelector("#closebtn");
@@ -16,7 +15,7 @@ const submit = document.querySelector("#submit");
 const email = document.querySelector("#email");
 const passwd = document.querySelector("#passwd");
 const checkbox = document.querySelector("#checkbox");
-
+const successMsg = document.querySelector("#successmsg")
 
 function closeForm(e){
     if(e.target.closest("#closebtn") !== null){
@@ -36,5 +35,11 @@ function checkValidation(e){
         alert("Your password should have at least 8 characters!");
     } else if(checkbox.checked === false){
         alert("Please accept terms & conditions!");
+    } else {
+        setTimeout(() => {
+            loginForm.style.display = "none";
+            showBtn.style.display = "none";
+            successMsg.style.display = "block";
+        }, 3000);
     }
 }
